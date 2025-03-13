@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/jadonaword/static/css/main.9e5fea64.chunk.css",
+    "main.js": "/jadonaword/static/js/main.455f62eb.chunk.js",
+    "main.js.map": "/jadonaword/static/js/main.455f62eb.chunk.js.map",
+    "runtime-main.js": "/jadonaword/static/js/runtime-main.c34dbc8b.js",
+    "runtime-main.js.map": "/jadonaword/static/js/runtime-main.c34dbc8b.js.map",
+    "static/js/2.b09d2f7a.chunk.js": "/jadonaword/static/js/2.b09d2f7a.chunk.js",
+    "static/js/2.b09d2f7a.chunk.js.map": "/jadonaword/static/js/2.b09d2f7a.chunk.js.map",
+    "index.html": "/jadonaword/index.html",
+    "precache-manifest.02026813d6c8de65abcc799b2c13554c.js": "/jadonaword/precache-manifest.02026813d6c8de65abcc799b2c13554c.js",
+    "service-worker.js": "/jadonaword/service-worker.js",
+    "static/css/main.9e5fea64.chunk.css.map": "/jadonaword/static/css/main.9e5fea64.chunk.css.map",
+    "static/js/2.b09d2f7a.chunk.js.LICENSE.txt": "/jadonaword/static/js/2.b09d2f7a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c34dbc8b.js",
+    "static/js/2.b09d2f7a.chunk.js",
+    "static/css/main.9e5fea64.chunk.css",
+    "static/js/main.455f62eb.chunk.js"
+  ]
+}
