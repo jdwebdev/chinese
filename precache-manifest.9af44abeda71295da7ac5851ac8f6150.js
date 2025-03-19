@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4591336c41072d0588bc0dd6c35b9474",
+    "revision": "ed339dbad4dc61e75fb77a1da5b50f70",
     "url": "/jadonaword/index.html"
   },
   {
-    "revision": "221433d333be54848dba",
+    "revision": "d0403d46ff17f230c9f1",
     "url": "/jadonaword/static/css/main.9e5fea64.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/jadonaword/static/js/2.b09d2f7a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "221433d333be54848dba",
-    "url": "/jadonaword/static/js/main.455f62eb.chunk.js"
+    "revision": "d0403d46ff17f230c9f1",
+    "url": "/jadonaword/static/js/main.6f8f626a.chunk.js"
   },
   {
     "revision": "4b7afcb717fee2040b6e",
