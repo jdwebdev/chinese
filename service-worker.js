@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/jadonaword/precache-manifest.9af44abeda71295da7ac5851ac8f6150.js"
+  "/jadonaword/precache-manifest.e119b36aac1626d0e865ffd02950e7d5.js"
 );
 
 self.addEventListener('message', (event) => {
