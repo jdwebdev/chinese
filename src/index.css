@@ -1,0 +1,1235 @@
+/* General */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	/* color: black; */
+}
+
+:root {
+	--red: rgba(172, 50, 50);
+	--red-hover: rgba(182, 60, 60);
+	--green: rgb(108, 187, 28);
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+select {
+	background-color: var(--red);
+	border: none;
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+	border: 2px solid white;
+}
+
+select:focus {
+	outline: none;
+}
+
+select:hover {
+	background-color: var(--red-hover);
+}
+
+select option {
+	color: white;
+}
+
+select option:disabled {
+	color: rgba(200, 200, 200);
+	background-color: rgba(162, 40, 40);
+}
+
+::-webkit-scrollbar {
+	/* width */
+	width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+	/* Track */
+	background: rgba(0, 0, 0, 0);
+}
+
+
+::-webkit-scrollbar-thumb {
+	/* Handle */
+	background-color: var(--red);
+	border-radius: 5px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+	/* Handle on hover */
+	background-color: var(--red-hover);
+}
+
+
+/* HEADER */
+header {
+	margin: 0 auto;
+	height: 60px;
+	background-color: var(--red);
+	z-index: 10;
+	width: 100%;
+	padding-left: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: sticky;
+	top: 0px;
+}
+
+nav {
+	display: flex;
+}
+
+h1 {
+	color: white;
+}
+
+.help_btn {
+	color: white;
+	font-size: 20px;
+	border: 0px;
+	border-left: 2px solid white;
+	width: 40px;
+	height: 60px;
+	background-color: var(--red);
+	touch-action: manipulation;
+	transition: ease 0.3s;
+}
+
+.help_btn:hover {
+	transition: ease 0.3s;
+	cursor: pointer;
+	/* font-size: 22px; */
+	background-color: rgba(240, 240, 240);
+	color: var(--red);
+	font-weight: bold;
+}
+
+
+/* SEARCH SECTION */
+.search_section {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding-top: 5px;
+	position: sticky;
+	top: 60px;
+
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+/* --- Form Section (Input + searchBtn) --- */
+.search_form {
+	display: flex;
+	padding: 0 10px 0 10px;
+	justify-content: center;
+	position: relative;
+}
+
+.search_input {
+	height: 40px;
+	flex-grow: 1;
+	padding-left: 10px;
+	font-size: 16px;
+	border-radius: 10px 0 0 10px;
+	border-right: none;
+	border: 2px solid var(--red);
+	border-right: none;
+}
+
+.delete_btn {
+	border: 2px solid var(--red);
+	border-right: 0px;
+	background-color: white;
+	width: 40px;
+	height: 40px;
+	font-size: 16px;
+	color: var(--red);
+	transition: ease 0.3s;
+	position: absolute;
+	right: 60px;
+}
+
+.delete_btn:hover {
+	cursor: pointer;
+	transition: ease 0.3s;
+	background-color: var(--red);
+	color: white;
+}
+
+.searchBtn {
+	border: 2px solid var(--red);
+	/* border-left: 0px; */
+	border-radius: 0 10px 10px 0;
+	background-color: white;
+	width: 50px;
+	height: 40px;
+	font-size: 16px;
+	font-weight: bold;
+	color: var(--red);
+	transition: ease 0.3s;
+}
+
+.searchBtn:hover {
+	cursor: pointer;
+	background-color: var(--red);
+	color: white;
+	transition: ease 0.3s;
+}
+
+.search_input:focus {
+	outline: none;
+}
+
+
+/* --- Select Section --- */
+.select_container {
+	display: flex;
+	justify-content: space-around;
+	padding: 0px 5px;
+	height: 40px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	/* background-color: var(--red); */
+	/* border-radius: 10px; */
+}
+
+.select_background_lesson {
+	background-color: var(--red);
+	padding: 3px;
+	width: 48%;
+	border-radius: 7px;
+}
+
+.select_type {
+	width: 100%;
+	height: 34px;
+	font-size: 16px;
+}
+
+.select_lesson {
+	width: 100%;
+	height: 34px;
+	font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- 练习 ---------- */
+/* ---------- 练习 ---------- */
+/* ---------- 练习 ---------- */
+
+
+
+/* 练习 HEADER */
+.training_form {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+	height: 250px;
+	justify-content: space-between;
+}
+
+.filters_section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.zt_training_type {
+	display: flex;
+	align-items: center;
+
+	justify-content: space-between;
+	width: 380px;
+	margin-right: 10px;
+}
+
+#zt_select_training_type {
+	width: 200px;
+	height: 36px;
+}
+
+.filters_btn_container {
+	display: flex;
+	justify-content: space-between;
+	width: 232px;
+}
+
+.filters_container {
+	display: flex;
+}
+
+#zt_select {
+	width: 70px;
+	height: 36px;
+}
+
+#zt_select_filter {
+	width: 70px;
+	height: 36px;
+}
+
+#up_arrow {
+	background-color: rgb(245, 225, 195);
+	position: absolute;
+	top: 37px;
+	left: 30px;
+	width: 10px;
+	height: 10px;
+	border-radius: 0px 50px 0 0;
+}
+
+#vocRef {
+	background-color: rgb(245, 225, 195);
+	position: absolute;
+	top: 45px;
+	left: 0;
+	width: 190px;
+	border-radius: 10px;
+	padding: 5px;
+	box-shadow: 2px 2px 2px gray;
+}
+
+.select_filter {
+	width: 65px;
+	height: 30px;
+	font-size: 16px;
+}
+
+input.select_filter {
+	width: 35px;
+}
+
+#zt_h_select_lesson {
+	width: 130px;
+	height: 36px;
+}
+
+.zt_hanzi_free {
+	width: 100%;
+}
+
+.zt_hanzi_free input {
+	margin-top: 5px;
+	height: 50px;
+	width: 100%;
+	font-size: 16px;
+}
+
+.startBtn {
+	padding: 0 5px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	border: 2px solid var(--red);
+	font-size: 16px;
+
+	background-color: white;
+	color: var(--red);
+	width: 100px;
+	height: 80px;
+	font-size: 20px;
+	font-weight: bold;
+	align-self: center;
+
+
+	transition: ease 0.3s;
+}
+
+.startBtn:hover {
+	cursor: pointer;
+	background-color: var(--red-hover);
+	color: white;
+}
+
+
+
+.select_background_training {
+	background-color: var(--red);
+	padding: 3px;
+	border-radius: 7px;
+
+}
+
+.filters_container .select_background_training {
+	margin-right: 10px;
+}
+
+
+/* 练习 MAIN */
+
+.training_section {
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 100%;
+	max-width: 1000px;
+	padding: 5px;
+}
+
+.backBtn {
+	background-color: white;
+	border: 2px solid var(--red);
+	color: var(--red);
+
+	width: 100px;
+	height: 50px;
+	padding: 5px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+	border-radius: 15px 5px 5px 15px;
+	font-size: 16px;
+	transition: ease 0.3s;
+	margin-bottom: 5px;
+}
+
+.backBtn:hover {
+	cursor: pointer;
+	background-color: var(--red-hover);
+	color: white;
+
+}
+
+.toFind {
+	font-size: 40px;
+	text-align: center;
+	border: 1px solid gray;
+	padding: 5px 0;
+	margin-bottom: 15px;
+	min-height: 74px;
+	vertical-align: middle;
+	position: relative;
+}
+
+.zt_fanti {
+	text-align: center;
+	height: 45px;
+	font-size: 30px;
+	background-color: rgb(240, 240, 240);
+	border-radius: 10px;
+	color: rgb(0, 0, 0);
+	border: 1px solid black;
+}
+
+.no_zt_fanti {
+	text-align: center;
+	height: 45px;
+	font-size: 30px;
+	background-color: rgb(240, 240, 240);
+	border-radius: 10px;
+
+	color: rgb(200, 200, 200);
+	border: none;
+}
+
+.zt_word_fanti {
+	font-size: 16px;
+}
+
+.zt_word_fanti_none {
+	display: none;
+}
+
+.zt_check {
+	width: 100%;
+	height: 60px;
+	font-size: 26px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+	margin-top: 10px;
+	touch-action: manipulation;
+
+	background-color: white;
+	border: 2px solid var(--red);
+	color: var(--red);
+	border-radius: 10px;
+
+	transition: ease 0.3s;
+}
+
+.zt_check:hover {
+	cursor: pointer;
+	background-color: var(--red);
+	color: white;
+}
+
+#zt_hanzichoice_next {
+	display: none;
+}
+
+#zt_nextBtn_container {
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+#zt_nextBtn_container button {
+	width: 48%;
+	height: 60px;
+	font-size: 30px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+	border: none;
+	border-radius: 10px;
+	color: white;
+	transition: ease 0.3s;
+
+}
+
+#zt_nextBtn_container button:hover {
+	cursor: pointer;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+	border-radius: 16px;
+	font-size: 32px;
+}
+
+#zt_win {
+	background-color: var(--green);
+	touch-action: manipulation;
+}
+
+#zt_fail {
+	background-color: var(--red);
+	color: white;
+	touch-action: manipulation;
+}
+
+.progress_bar_container {
+	width: 100%;
+	position: relative;
+	height: 20px;
+}
+
+.progressBar {
+	height: 20px;
+	width: 0%;
+	background-color: var(--green);
+}
+
+#currentIndex {
+	position: absolute;
+	top: -40px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	height: 20px;
+	font-size: 20px;
+	text-align: center;
+}
+
+.zt_vocContainer {
+	overflow-y: scroll;
+	position: relative;
+}
+
+.zt_arrow_container {
+	position: relative;
+}
+
+#list_up_arrow {
+	position: absolute;
+	top: -5px;
+	left: 50%;
+	color: rgba(0, 0, 0, 0.3);
+	border-top: 2px dotted rgba(0, 0, 0, 0.3);
+	width: 200px;
+	text-align: center;
+	transform: translate(-50%, 0);
+}
+
+#list_bottom_arrow {
+	font-size: 14px;
+	position: absolute;
+	top: -10px;
+	left: 50%;
+	color: rgba(0, 0, 0, 0.3);
+	border-bottom: 2px dotted rgba(0, 0, 0, 0.3);
+	width: 200px;
+	transform: translate(-50%, 0);
+	text-align: center
+}
+
+#list_bottom_arrow_bord {
+	position: absolute;
+	top: 5px;
+	width: 200px;
+	left: 23%;
+	border-top: 2px solid gray;
+}
+
+.zt_pinyin {
+	font-size: 28px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.zt_hanziYisi {
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+
+.zt_word_yisi {
+	text-align: center;
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+.zt_ciyu {
+	display: flex;
+	padding: 5px 0 5px 0;
+	border-bottom: 1px dashed gray;
+}
+
+.zt_ciyuBorder {
+	border-top: 1px dashed gray;
+}
+
+.zt_ciyu_ciyuPinyin {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
+.zt_yisi {
+	width: 50%;
+	padding-top: 10px;
+}
+
+.zt_wordToFind {
+	min-height: 26px;
+}
+
+/* 拼音练习 */
+.zt_pinyin_form {
+	display: flex;
+	justify-content: space-around;
+}
+
+.zt_pinyin_form .searchBtn {
+	font-size: 14px;
+}
+
+#zt_pinyin_input {
+	margin-bottom: 10px;
+}
+
+#zt_pinyin_keyboard {
+	display: none;
+	margin: 0 auto;
+	width: 100%;
+	z-index: 100px;
+
+}
+
+.zt_button_list {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 10px;
+}
+
+.zt_pinyin_block {
+	display: flex;
+	justify-content: space-around;
+	width: 70%;
+}
+
+.zt_pinyin_block button {
+	width: 40px;
+	height: 40px;
+	font-size: 20px;
+	padding: 0px;
+	touch-action: manipulation;
+	border-radius: 10px;
+	border: 1px solid rgba(0, 0, 0, 0);
+	margin-bottom: 5px;
+	box-shadow: 2px 2px 2px gray;
+	color: black;
+}
+
+.zt_pinyin_block button:hover {
+	cursor: pointer;
+}
+
+/* 选择汉字练习 */
+.zt_hanzichoice_main_container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+#zt_hanzichoice_container {
+	display: flex;
+	flex-direction: column;
+	margin: 10px 0;
+	width: 100%;
+}
+
+.zt_ones_container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+#zt_hanzichoice_container .zt_one {
+	border-radius: 5px;
+	border: 1px dashed gray;
+	padding: 5px;
+	width: 50px;
+	height: 56px;
+	text-align: center;
+	font-size: 30px;
+}
+
+#zt_hanzichoice_container .zt_hanzichoice_invisible {
+	color: red;
+	font-size: 30px;
+	border-color: red;
+	/* text-align:center; */
+}
+
+.zt_hanzichoice_correct {
+	color: green;
+}
+
+.zt_hanzichoice_incorrect {
+	color: red;
+}
+
+#zt_answerchoice_container {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+}
+
+#zt_answerchoice_translation {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.zt_answerchoice_row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.zt_answerchoice_hanzi {
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	padding: 5px;
+	font-size: 34px;
+	border: 1px solid rgb(199, 199, 199);
+	border-radius: 10px;
+	box-shadow: 1px 1px 1px gray;
+
+	list-style-type: none;
+}
+
+.zt_answerchoice_hanzi:hover {
+	background-color: rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
+
+
+/* RESULT */
+.zt_result_list {
+	font-size: 20px;
+	list-style-type: none;
+}
+
+.zt_result {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.zt_tooEasy {
+	margin-top: 10px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.zt_easy_heart {
+	color: red;
+}
+
+@media (max-width: 600px) {
+	.training_form {
+		height: 300px;
+	}
+
+	.filters_section {
+		justify-content: unset;
+	}
+
+	.zt_training_type {
+		flex-grow: 1;
+		margin-right: 0px;
+	}
+
+	.filters_btn_container {
+		margin-top: 5px;
+	}
+
+	.zt_hanzi_free p {
+		font-size: 12px;
+	}
+
+	.progress_bar_container {
+		height: 15px;
+	}
+
+	.progressBar {
+		height: 15px;
+	}
+
+	#currentIndex {
+		height: 15px;
+		font-size: 20px;
+	}
+
+	.zt_fanti {
+		height: 40px;
+		font-size: 24px;
+	}
+
+	.no_zt_fanti {
+		height: 40px;
+		font-size: 24px;
+	}
+
+	.zt_pinyin {
+		font-size: 25px;
+	}
+
+	.zt_check:hover {
+		background-color: unset;
+		color: var(--red);
+	}
+
+	#zt_answerchoice_container {
+		width: 100%;
+	}
+
+	.zt_answerchoice_hanzi:hover {
+		background-color: unset;
+	}
+
+	#zt_nextBtn_container button:hover {
+		box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+		border-radius: 10px;
+		font-size: 30px;
+	}
+
+	.zt_pinyin_block {
+		width: 100%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- MODAL ---------- */
+/* ---------- MODAL ---------- */
+/* ---------- MODAL ---------- */
+
+
+#modal {
+	display: flex;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	flex-direction: center;
+	z-index: 10;
+	transition: ease opacity 0.01s;
+}
+
+#modal.fadeIn {
+	transition: ease opacity 0.3s;
+	opacity: 1;
+	z-index: 10;
+}
+
+#popup {
+	width: 100%;
+	max-height: 300px;
+
+}
+
+.oneResult {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	max-width: 800px;
+	background-color: blanchedalmond;
+	border-radius: 10px;
+	margin: 0 auto;
+	box-shadow: 4px 4px 0px var(--red);
+	padding: 10px;
+}
+
+.oneResult_subpart {
+	border: 2px solid var(--red);
+	border-radius: 10px;
+}
+
+.word_container {
+	border-radius: 10px 10px 0px 0px;
+	border-right: 0px;
+	border-bottom: 2px solid var(--red);
+	width: 100%;
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.hanzi {
+	font-size: 35px;
+	position: relative;
+}
+
+.fanti {
+	position: absolute;
+	width: 120px;
+	left: 70px;
+	top: 5px;
+	font-size: 30px;
+}
+
+.word_details {
+	border-right: 0px;
+	font-size: 18px;
+	width: 100%;
+	padding: 10px 10px 0px 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	overflow-y: auto;
+	position: relative;
+}
+
+.voc {
+	/* <li> */
+	display: flex;
+	padding: 5px 0px 5px 0px;
+	border-bottom: 1px dashed gray;
+}
+
+.voc:hover {
+	background-color: rgb(255, 245, 215);
+}
+
+.voc_last {
+	border: none;
+}
+
+.vocRef {
+	background-color: rgb(235, 215, 185);
+}
+
+.voc_last.vocRef {
+	border-radius: 0 0 10px 10px;
+}
+
+.voc_cy {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+}
+
+.voc_ciyu {
+	font-size: 20px;
+}
+
+.voc_pinyin {
+	font-size: 14px;
+	min-height: 18px;
+	display: none;
+}
+
+.voc_fayu {
+	width: 50%;
+	font-size: 14px;
+	padding-top: 5px;
+}
+
+
+.voc_pinyin_void {
+	display: flex;
+	height: 18px;
+}
+
+.void_span {
+	display: flex;
+	background-color: rgb(245, 225, 195);
+	border-radius: 10px;
+	width: 50px;
+	font-size: 14px;
+	justify-content: center;
+}
+
+.void_span.void_ref_span {
+	background-color: rgb(225, 205, 175);
+}
+
+.lesson_number {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	font-size: 14px
+}
+
+
+
+/* ---Word--- */
+.word_fanti {
+	border-bottom: 2px solid var(--red);
+	text-align: center;
+	font-size: 18px;
+}
+
+.word_pinyin_void {
+	display: flex;
+	height: 21px;
+	margin-bottom: 5px;
+}
+
+.word_pinyin_void_span {
+	margin: 0 auto;
+	background-color: rgb(245, 225, 195);
+	width: 100px;
+	border-radius: 10px;
+	font-size: 16px;
+	display: flex;
+	justify-content: center;
+}
+
+.word_pinyin {
+	justify-content: center;
+	height: 21px;
+	margin-bottom: 5px;
+	display: none;
+	font-size: 16px;
+}
+
+.word_yisi {
+	font-size: 16px;
+}
+
+
+
+.gram {
+	margin-top: 10px;
+	font-size: 14px;
+}
+
+.lesson_number {
+	position: absolute;
+	bottom: 0px;
+	right: 10px;
+	font-size: 10px;
+}
+
+.word_example_list {
+	max-height: 360px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 2px;
+	overflow-y: scroll;
+	background-color: rgb(245, 225, 195);
+	margin: 10px;
+	border-radius: 5px;
+	border: 2px solid var(--red);
+}
+
+.word_in_example {
+	color: var(--red);
+	font-weight: bold;
+}
+
+
+/* HELP */
+.help_container {
+	padding: 10px;
+	max-height: 500px;
+	overflow-y: scroll;
+	text-align: justify;
+}
+
+.help_main_title {
+	text-align: center;
+	margin: 10px 0;
+}
+
+.help_container li {
+	list-style-type: none;
+	margin-top: 15px;
+}
+
+.help_title {
+	position: relative;
+	font-size: 18px;
+	text-align: center;
+	margin: 5px 0;
+}
+
+.app_version {
+	position: absolute;
+	right: 0px;
+	top: 3px;
+	font-size: 10px;
+}
+
+.date {
+	font-size: 12px;
+	text-align: center;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	margin: px 0;
+	position: relative;
+}
+
+/* ---- END MODAL --- */
+
+
+
+
+
+
+
+/* Home section. Result nb & Result list */
+.result_nb {
+	max-width: 1000px;
+	margin: 0 auto;
+	font-size: 12px;
+	padding-left: 5px;
+}
+
+/* HANZI */
+.one_line {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.one_line li {
+	list-style-type: none;
+	font-size: 30px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	border: 1px solid rgba(200, 200, 200, 1);
+	border-radius: 5px;
+	padding: 8px 10px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	width: 52px;
+	flex-grow: 0.1;
+}
+
+.one_line li.no_border {
+	border: 1px solid rgba(0, 0, 0, 0);
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0);
+	color: rgba(0, 0, 0, 0);
+	/* width: 52px; */
+}
+
+.hanziList {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 5px;
+}
+
+.oneHanzi:hover {
+	cursor: pointer;
+}
+
+
+@media (min-width: 999px) {
+	.one_line li {
+		/* width: 65px; */
+		flex-grow: 0.05;
+	}
+
+	.word_yisi {
+		font-size: 18px;
+	}
+
+	.lesson_number {
+		font-size: 14px;
+	}
+
+	.oneHanzi:hover {
+		background-color: rgba(0, 0, 0, 0.2);
+		cursor: pointer;
+	}
+
+	.one_line li.no_border {
+		border: 1px solid rgba(0, 0, 0, 0);
+		box-shadow: 2px 2px 2px rgba(0, 0, 0, 0);
+		color: rgba(0, 0, 0, 0);
+		flex-grow: 0.05;
+	}
+
+}
+
+
+
+/* WORD */
+.one_result {
+	display: inline-block;
+	height: 62p x;
+	font-size: 30px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	margin-left: 5px;
+	border: 1px solid rgba(200, 200, 200, 1);
+	border-radius: 5px;
+	padding: 10px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.one_result_color {
+	background-color: pink;
+}
+
+.one_result_exp_color {
+	background-color: #bae1ff;
+}
+
+.one_result:hover {
+	background-color: rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+}
