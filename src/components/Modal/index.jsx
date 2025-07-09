@@ -134,7 +134,7 @@ function Modal(props) {
 	return (
 		<div id="modal" onClick={(e) => closeModal(e, true)}>
 			<div id="popup">
-				<div className="oneResult" onClick={(e) => closeModal(e)}>
+				<div className="oneResult" onClick={(e) => closeModal(e, true)}>
 					<div className="oneResult_subpart">
 
 						{hanzi !== null &&
