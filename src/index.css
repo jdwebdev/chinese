@@ -928,6 +928,10 @@ input.select_filter {
 	font-size: 30px;
 }
 
+.hanziPinyin {
+	font-size: 20px;
+}
+
 .word_details {
 	border-right: 0px;
 	font-size: 18px;
