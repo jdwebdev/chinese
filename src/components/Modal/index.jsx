@@ -1,7 +1,7 @@
 import React from "react";
 import { useStore } from "react-redux";
 // import { useState, useEffect } from "react";
-import { hanziList, wordList, gramList } from "../../datas/hanzi.js";
+import { hanziList, wordList, gramList, exampleList, expressionList } from "../../datas/hanzi.js";
 
 import styled from "styled-components";
 
@@ -41,14 +41,26 @@ function Modal(props) {
 		}
 	}
 
-	function displayWordPinyin() {
+	function displayWordPinyin(e) {
+		e.stopPropagation();
 		const pinyin = document.getElementById("word_pinyin")
 		const pinyin_void = document.getElementById("word_pinyin_void")
 		pinyin.style.display = "flex";
 		pinyin_void.style.display = "none";
 	}
 
-	function displayExampleList(index, phrase) {
+	function displayExampleList(index, pPhrase) {
+		
+		let phrase = "";
+		let i = 0;
+		if (pPhrase.includes("a")) {
+			pPhrase = parseInt(pPhrase);
+			phrase = "・" + expressionList[pPhrase].phrase.replaceAll(word.cleaned,`&&&${word.cleaned};;;`);
+			phrase += " | " + expressionList[pPhrase].yisi;
+		} else {
+			pPhrase = parseInt(pPhrase);
+			phrase = "・" + exampleList[pPhrase].phrase.replaceAll(word.cleaned,`&&&${word.cleaned};;;`);
+		}
 		
 		let uniqueIndex = 0;
 
@@ -151,13 +163,13 @@ function Modal(props) {
 									{ hanzi.ciyuList.map((w, index) => (
 										<li key={index} className="voc" onClick={(e) => displayPinyin(e, index)}>
 											<div className="voc_cy">
-												<p className="voc_ciyu">{w.hanzi}</p>
-												{w.pinyin !== "" &&
+												<p className="voc_ciyu">{wordList[w].hanzi}</p>
+												{wordList[w].pinyin !== "" &&
 													<p id={"pinyin_void_"+index} className="voc_pinyin_void"><span className="void_span">?</span></p>
 												}
-												<p id={"pinyin_"+index} className="voc_pinyin">{w.pinyin}</p>
+												<p id={"pinyin_"+index} className="voc_pinyin">{wordList[w].pinyin}</p>
 											</div>
-											<p className="voc_fayu">{w.yisi}</p>
+											<p className="voc_fayu">{wordList[w].yisi}</p>
 										</li>
 									))}
 								</ul>
@@ -171,7 +183,7 @@ function Modal(props) {
 							</div>
 							{word.fanti !== "" &&  <p className="word_fanti">{word.fanti}</p>}
 							
-							<WordDetails className="word_details" onClick={(e) => displayWordPinyin()}>
+							<WordDetails className="word_details" onClick={(e) => displayWordPinyin(e)}>
 								<p id="word_pinyin_void" className="word_pinyin_void"><span className="word_pinyin_void_span">?</span></p>
 								<p id="word_pinyin" className="word_pinyin">{word.pinyin}</p>
 								<p className="word_yisi">{word.yisi}</p>
@@ -181,7 +193,7 @@ function Modal(props) {
 							{word.exampleList.length > 0 && 
 								<ul className="word_example_list">
 									{word.exampleList.map((ex, index) => (
-										displayExampleList(index, ex.phrase)
+										displayExampleList(index, ex)
 									))}
 								</ul>
 							}

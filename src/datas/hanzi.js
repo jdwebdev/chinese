@@ -1,9 +1,11 @@
-import { hanziImportedList, wordImportedList, exampleImportedList } from "./importedDatas.js";
+import { hanziImportedList, wordImportedList, exampleImportedList, lessonImportedList, expressionImportedList } from "./importedDatas.js";
 
-console.log("Hanzi.js");
-const HANZI_LIST = [];
-const WORD_LIST = [];
-const LESSON_LIST = [];
+// console.log("Hanzi.js");
+const HANZI_LIST = hanziImportedList;
+const WORD_LIST = wordImportedList;
+const LESSON_LIST = lessonImportedList;
+const EXAMPLE_LIST = exampleImportedList;
+const EXPRESSION_LIST = expressionImportedList;
 const BUSHOU_LIST = [
 	{ nb: 1, key: ["一", "丿", "丶", "乙", "乛", "乚", "亅", "丨"] },
 	{ nb: 2, key: ["十","厂","匚","卜","冂","八","丷","人","亻","勹","儿","匕","几","亠","冫","冖","凵","卩","刂","刀","阝","力","又","厶","廴","讠","匕","二","入","㔾"] },
@@ -21,126 +23,8 @@ const BUSHOU_LIST = [
 	{ nb: 14, key: ["鼻"] },
 ];
 const GRAM_LIST = [];
-const EXAMPLE_LIST = [];
-const EXPRESSION_LIST = [];
+
 fillGramList();
-
-hanziImportedList.forEach(h => {
-	HANZI_LIST.push(newHanzi(h[0],h[1],h[2],h[3],h[4],h[5],h[6],h[7]));
-});
-
-wordImportedList.forEach(w => {
-	WORD_LIST.push(newWord(w[0],w[1],w[2],w[3],w[4],w[5],w[6]));
-});
-
-HANZI_LIST.forEach((h) => {
-	WORD_LIST.forEach((w) => {
-		if (w.hanzi.includes(h.hanzi)) {
-			h.ciyuList.push({
-				hanzi: w.hanzi,
-				pinyin: w.pinyin,
-				yisi: w.yisi,
-			});
-		}
-	});
-});
-
-exampleImportedList.forEach(e => {
-	// EXAMPLE_LIST.push(newWord(e[0],e[1]));
-	EXAMPLE_LIST.push(newExample(e[0],e[1]));
-});
-
-let cleanedWord = "";
-WORD_LIST.forEach((w) => {
-	//? MC lessons : Expressions to exampleList for non-expression words
-	if (w.gram !== "Exp") {
-		EXPRESSION_LIST.forEach((e) => {
-			cleanedWord = "";
-			if (w.hanzi.includes("[")) {
-				cleanedWord = w.hanzi.split("[")[0];
-				cleanedWord = cleanedWord.slice(0, cleanedWord.length - 1);
-			} else {
-				cleanedWord = w.hanzi;
-			}
-			if (e.phrase.includes(cleanedWord)) {
-				let example = { phrase: "・", lesson: e.lesson };
-				example.phrase += e.phrase.replaceAll(cleanedWord,`&&&${cleanedWord};;;`);
-				example.phrase += " | " + e.yisi;
-				w.exampleList.push(example);
-			}
-		});
-	}
-	EXAMPLE_LIST.forEach((e) => {
-		cleanedWord = "";
-
-		if (w.hanzi.includes("[")) {
-			cleanedWord = w.hanzi.split("[")[0];
-			cleanedWord = cleanedWord.slice(0, cleanedWord.length - 1);
-		} else {
-			cleanedWord = w.hanzi;
-		}
-
-		if (e.phrase.includes(cleanedWord)) {
-			let example = { phrase: "", lesson: e.lesson };
-			example.phrase = "・" + e.phrase.replaceAll(cleanedWord,`&&&${cleanedWord};;;`);
-			w.exampleList.push(example);
-		}
-	});
-});
-
-function newHanzi(pId, pHanzi, pPinyin, pHanziYisi, pKe, pFanti, pBushou, pFuxi) {
-  let bushou = "";
-  let fantiList = [];
-  if (pBushou.includes("，")) {
-    bushou = pBushou.split("，")[1].split("|")[1];
-  } else {
-    bushou = pBushou.split("|")[1];
-  }
-  if (!LESSON_LIST.includes(pKe)) {
-    LESSON_LIST.push(pKe);
-  }
-  if (pFanti !== "") fantiList = pFanti.split(",");
-
-  return {
-    id: pId,
-    hanzi: pHanzi,
-    pinyin: pPinyin,
-    hanziYisi: pHanziYisi,
-    ke: pKe,
-    fanti: pFanti,
-    ciyuList: [],
-    vocRefList: [],
-    bFuxi: pFuxi !== "",
-    bushou: bushou,
-    fantiList: fantiList
-  }
-}
-
-function newWord(pId, pHanzi, pPinyin, pYisi, pGram = "", pKe = "", pFanti = "") {
-
-  // if (!Z_Word.keList.includes(pKe)) Z_Word.keList.push(pKe);
-	const expList = [];
-  if (pGram === "Exp") EXPRESSION_LIST.push({phrase: pHanzi, ke: pKe, yisi: pYisi});
-	
-  return {
-    id: pId,
-    hanzi: pHanzi,
-    pinyin: pPinyin,
-    yisi: pYisi,
-    gram: pGram,
-    ke: pKe,
-    fanti: pFanti,
-    exampleList: [],
-		expList: expList
-  }
-}
-
-function newExample(pPhrase, pLesson) {
-	return {
-		phrase: pPhrase,
-		lesson: pLesson
-	}
-}
 
 function fillGramList() {
 	GRAM_LIST["N."] = "Nom";
@@ -188,9 +72,10 @@ function fillGramList() {
 	GRAM_LIST["Result"] = "Résultatif";
 }
 
-
 export const bushouList = BUSHOU_LIST;
 export const lessonList = LESSON_LIST;
 export const wordList = WORD_LIST;
 export const hanziList = HANZI_LIST;
 export const gramList = GRAM_LIST;
+export const exampleList = EXAMPLE_LIST;
+export const expressionList = EXPRESSION_LIST;

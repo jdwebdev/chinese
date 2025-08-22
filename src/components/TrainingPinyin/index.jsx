@@ -5,6 +5,7 @@ import { id } from "../../utils/utils.js";
 import TrainingEnd from "../TrainingEnd";
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
+import { wordList } from "../../datas/hanzi.js";
 
 const VocContainer = styled.ul`
 	height: 500px;
@@ -164,10 +165,10 @@ function TrainingPinyin() {
 					{ trainingList[trainingIndex].ciyuList.map((w, index) => (
 						<li key={index} className={index === 0 ? "zt_ciyu zt_ciyuBorder" : "zt_ciyu"}>
 							<div className="zt_ciyu_ciyuPinyin">
-								<p className="zt_wordToFind">{w.hanzi}</p>
-								<p>{!checked ? <span>?</span> : <span>{w.pinyin}</span>}</p>
+								<p className="zt_wordToFind">{wordList[w].hanzi}</p>
+								<p>{!checked ? <span>?</span> : <span>{wordList[w].pinyin}</span>}</p>
 							</div>
-							<p className="zt_yisi">{w.yisi}</p>
+							<p className="zt_yisi">{wordList[w].yisi}</p>
 						</li>
 					))}
 				</VocContainer>

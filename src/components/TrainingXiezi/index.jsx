@@ -3,6 +3,7 @@ import { useStore } from "react-redux";
 import { useEffect, useState } from "react";
 import { id } from "../../utils/utils.js"
 import TrainingEnd from "../TrainingEnd";
+import { wordList } from "../../datas/hanzi.js";
 
 import styled from "styled-components";
 
@@ -81,10 +82,10 @@ function TrainingXiezi() {
 						{ trainingList[trainingIndex].ciyuList.map((w, index) => (
 							<li key={index} className={index === 0 ? "zt_ciyu zt_ciyuBorder" : "zt_ciyu"}>{/*zt_ciyuBorder*/}
 								<div className="zt_ciyu_ciyuPinyin">
-										<p className="zt_wordToFind">{!checked ? <span>?</span> : <span>{w.hanzi}</span>}</p>
-										<p>{w.pinyin}</p>
+										<p className="zt_wordToFind">{!checked ? <span>?</span> : <span>{wordList[w].hanzi}</span>}</p>
+										<p>{wordList[w].pinyin}</p>
 								</div>
-								<p className="zt_yisi">{w.yisi}</p>
+								<p className="zt_yisi">{wordList[w].yisi}</p>
 							</li>
 						))}
 					</VocContainer>
