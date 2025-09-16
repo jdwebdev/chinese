@@ -32,30 +32,31 @@ function TrainingHanziChoice() {
 		if (!bChoiceDone) {
 			let selectedOne = id(hanzi);
 			if (hanziToFind === hanzi) {
-				
+				const answerTranslation = document.getElementById("zt_answerchoice_translation");
+				answerTranslation.innerHTML = trainingList[trainingIndex].yisi;
 
-					let elementList = document.getElementsByClassName("zt_hanzichoice_invisible");
-					elementList = Array.prototype.filter.call(
-							elementList,
-							(element) => element.nodeName === "DIV",
-					);
-					elementList.forEach(e => {
-							e.classList.remove("zt_hanzichoice_invisible");
-							e.classList.add("zt_hanzichoice_correct");
-							e.innerHTML = hanzi;
-					});
-					selectedOne.classList.add("zt_hanzichoice_correct");
-					let zt_hanzichoice_next = id("zt_hanzichoice_next");
-					zt_hanzichoice_next.style.display = "unset";
+				let elementList = document.getElementsByClassName("zt_hanzichoice_invisible");
+				elementList = Array.prototype.filter.call(
+						elementList,
+						(element) => element.nodeName === "DIV",
+				);
+				elementList.forEach(e => {
+						e.classList.remove("zt_hanzichoice_invisible");
+						e.classList.add("zt_hanzichoice_correct");
+						e.innerHTML = hanzi;
+				});
+				selectedOne.classList.add("zt_hanzichoice_correct");
+				let zt_hanzichoice_next = id("zt_hanzichoice_next");
+				zt_hanzichoice_next.style.display = "unset";
 
-					bChoiceDone = true;
-					const progressBar = id("zt_progressBar");
-					progressBar.style.width = ((trainingIndex+1) / trainingList.length) * 100 + "%";
+				bChoiceDone = true;
+				const progressBar = id("zt_progressBar");
+				progressBar.style.width = ((trainingIndex+1) / trainingList.length) * 100 + "%";
 
-					if (bHanziChoiceOK) {
-						okList.push(trainingList[trainingIndex]);
-						setOkList(okList);
-					}
+				if (bHanziChoiceOK) {
+					okList.push(trainingList[trainingIndex]);
+					setOkList(okList);
+				}
 
 			} else {
 				selectedOne.classList.add("zt_hanzichoice_incorrect");
@@ -67,13 +68,23 @@ function TrainingHanziChoice() {
 			}
 		}
 	}
+
+	function displayYisi(e) {
+		const answerTranslation = document.getElementById("zt_answerchoice_translation");
+		answerTranslation.innerHTML = trainingList[trainingIndex].yisi;
+		// console.log(trainingList[trainingIndex].yisi);
+		// if (pinyin_void === null) return
+		// pinyin.style.display = "flex";
+		// pinyin_void.style.display = "none";
+	}
 	
 	function next(e) {
 		bHanziChoiceOK = true;
 		bChoiceDone = false;
 		e.target.style.display = "none";
 		let newIndex = trainingIndex+1;
-
+		const answerTranslation = document.getElementById("zt_answerchoice_translation");
+		answerTranslation.innerHTML = "?";
 		if (newIndex >= trainingList.length) {
 			setEnd(true);
 		} else {
@@ -209,7 +220,9 @@ function TrainingHanziChoice() {
 				{createHanziToFindPart()}
 
 				<div>{trainingList[trainingIndex].pinyin}</div>
-				<div id="zt_answerchoice_translation">{trainingList[trainingIndex].yisi}</div>
+
+				{/* TODO HERE : display "?" and onClick: yisi  */}
+				<div id="zt_answerchoice_translation" onClick={(e) => displayYisi(e)}>?</div>
 
 				{createChoicesPart()}
 

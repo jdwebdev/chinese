@@ -722,6 +722,15 @@ input.select_filter {
 #zt_answerchoice_translation {
 	margin-top: 20px;
 	margin-bottom: 20px;
+	background-color: blanchedalmond;
+	padding: 5px;
+	border-radius: 10px;
+	min-width: 200px;
+	text-align: center;
+}
+
+#zt_answerchoice_translation:hover {
+	cursor: pointer;
 }
 
 .zt_answerchoice_row {
@@ -900,6 +909,18 @@ input.select_filter {
 .oneResult_subpart {
 	border: 2px solid var(--red);
 	border-radius: 10px;
+	position: relative;
+}
+
+.oneResult_stroke {
+	width: 32px;
+	padding: 5px;
+	padding-right: 7px;
+	position: absolute;
+	border-bottom: 2px solid var(--red);
+	border-right: 2px solid var(--red);
+	border-radius: 0 0 10px 0;
+	text-align: center;
 }
 
 .word_container {
@@ -1236,4 +1257,11 @@ input.select_filter {
 .one_result:hover {
 	background-color: rgba(0, 0, 0, 0.2);
 	cursor: pointer;
+}
+
+.one_result_stroke {
+	font-size: 20px;
+	text-align: center;
+	margin: 5px auto;
+	/* margin-bottom: 5px; */
 }

@@ -61,6 +61,17 @@ function LessonForm() {
 					return (h.bushou === pFilter)
 				});
 				break;
+			case 10:
+				let number = 1;
+				hanziList.forEach(h => {
+					if (parseInt(h.stroke) > number) number = h.stroke;
+				});
+				for (let i = 0; i < number; i++) {
+					hanziResultList[i] = hanziList.filter((h) => {
+						return (h.stroke == (i+1))
+					});
+				}
+				break;
 			case 2:
 				wordResultList = wordList.filter((w) => {
 					return (lFilter === "all" || w.ke === lFilter)
@@ -104,7 +115,43 @@ function LessonForm() {
 		if (e !== null) e.preventDefault();
 		let hanziResultList = [];
 		let wordResultList = [];
+		// console.log("searchValue: " + searchValue);
 
+		if (searchValue.includes("h()")) {
+			if (searchValue.slice(0, 3) == "h()") {
+				let currentHanziList = "";
+        let dame = ` ()0，[]·/…~.？～,=V1234567890N/"XxYO+QAB！!、`;
+        let newHanziList = "";
+        hanziList.forEach(h => {
+            currentHanziList += h.hanzi;
+        });
+
+        if (searchValue == "h()") {
+            wordList.forEach(w => {
+                for (let i = 0; i < w.hanzi.length; i++) {
+                    if (!(currentHanziList.includes(w.hanzi[i]))) {
+                        if (!(newHanziList.includes(w.hanzi[i])) && !(dame.includes(w.hanzi[i]))) {
+                            newHanziList += w.hanzi[i];
+                        }
+                    }
+                }
+            });
+        } else {
+					let research = searchValue.split("h() ")[1]
+					// console.log("research: " + research);
+					for (let i = 0; i < research.length; i++) {
+						if (!(currentHanziList.includes(research[i]))) {
+							if (!(newHanziList.includes(research[i])) && !(dame.includes(research[i]))) {
+								newHanziList += research[i];
+							}
+						}
+					}
+        }
+
+				console.log(newHanziList);
+
+			}
+		}
 		switch(searchFilter) {
 			case 0: //? Hanzi
 				hanziList.forEach((h) => {
@@ -153,6 +200,7 @@ function LessonForm() {
 				break;
 			default:
 		}
+
 		store.dispatch({type: "CHANGE_HANZI_LIST", payload: {hanziResultList: hanziResultList, wordResultList: wordResultList, searchFilter: searchFilter, lessonFilter: lessonFilter}});
 	}
 	function deleteInput(e, a ="nope") {
@@ -212,6 +260,7 @@ function LessonForm() {
 					>
 						<option value={0}>汉字 Caractères</option>
 						<option value={1}>部首 Clés / Radicaux</option>
+						<option value={10}>笔画数 Traits</option>
 						<option value={2}>词语 Mots</option>
 						<option value={3}>成语 Chengyu</option>
 						{/* <option value={4}>课文 Textes</option> */}
@@ -220,7 +269,7 @@ function LessonForm() {
 				<div className="select_background_lesson" style={ searchFilter !== 1 ? {display: "none"} : {} }>
 					{createBushouSelect()}
 				</div>
-				{ searchFilter !== 1 && searchFilter !== 3 &&
+				{ searchFilter !== 1 && searchFilter !== 3 && searchFilter !== 10 && 
 				<div className="select_background_lesson">
 					<select name="" id="z_select_lesson" className="select_lesson"
 						onChange={e => changeFilter(e.target.id, e.target.value)}

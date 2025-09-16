@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 import LessonForm from "../../components/LessonForm";
 import Modal from "../../components/Modal";
+import StrokeResult from "../../components/StrokeResult";
 
 
 const ResultSection = styled.div`
@@ -38,33 +39,46 @@ function Home() {
   function fillHanziResultSection() {
 		let hanziPerRow = windowWidth >= 1000 ? 12 : 6;
 
-		let liArray = [];
-		const ulArray = [];
-		let count = 0;
-		for (let i = currentHanziList.length-1; i >= 0; i--) {
-			count++
-			liArray.push(<li key={i} className="oneHanzi" onClick={(e) => openPopup(currentHanziList[i].id,"h")}>{currentHanziList[i].hanzi}</li>)
-			if (i === 0) {
-				if (count < hanziPerRow) {
-					let diff = hanziPerRow - count;
-					for (let j=0; j < diff; j++) {
-							liArray.push(<li key={i+"_"+j} className="no_border"></li>);
-					}
-					count = hanziPerRow;
-			}
-			}
-			if (count === hanziPerRow) {
-				count = 0;
-				ulArray.push(
-					<ul key={"ul_"+i} className="one_line">
-						{liArray.map((li) => li )}
-					</ul>
-				);
-				liArray = [];
-			}
-		}
+		if (Array.isArray(currentHanziList[0])) { //? Traits
 
-		return ulArray.map((ul) => ul);
+			let strokeResultList = [];
+			for (let i = 0; i < currentHanziList.length; i++) {
+				strokeResultList.push(<StrokeResult key={i} strokeId={i} openPopup={openPopup}/>);
+			}
+			return strokeResultList.map(s => s);
+				
+		} else {
+
+			let liArray = [];
+			const ulArray = [];
+			let count = 0;
+			for (let i = currentHanziList.length-1; i >= 0; i--) {
+				count++
+				liArray.push(<li key={i} className="oneHanzi" onClick={(e) => openPopup(currentHanziList[i].id,"h")}>{currentHanziList[i].hanzi}</li>)
+				if (i === 0) {
+					if (count < hanziPerRow) {
+						let diff = hanziPerRow - count;
+						for (let j=0; j < diff; j++) {
+							liArray.push(<li key={i+"_"+j} className="no_border"></li>);
+						}
+						count = hanziPerRow;
+				}
+				}
+				if (count === hanziPerRow) {
+					count = 0;
+					ulArray.push(
+						<ul key={"ul_"+i} className="one_line">
+							{liArray.map((li) => li )}
+						</ul>
+					);
+					liArray = [];
+				}
+			}
+	
+			return ulArray.map((ul) => ul);
+		}
+		
+
   }
 
 	function openPopup(pId, pFrom) {

@@ -151,6 +151,7 @@ function Modal(props) {
 
 						{hanzi !== null &&
 						(<>
+							<span className="oneResult_stroke">{hanzi.stroke}</span>
 							<div className="word_container">
 								<div className="hanzi">
 									{hanzi.hanzi}
